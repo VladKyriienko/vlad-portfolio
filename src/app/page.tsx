@@ -5,21 +5,21 @@ const skills = [
   "React / Next.js",
   "Node.js",
   "Git",
-  "Англійська (B2)",
+  "English (B2)",
 ];
 
 const experience = [
   {
-    role: "Посада",
-    company: "Компанія",
-    period: "2022 — дотепер",
-    description: "Короткий опис обовʼязків та досягнень.",
+    role: "Job Title",
+    company: "Company",
+    period: "2022 — present",
+    description: "Brief description of responsibilities and achievements.",
   },
   {
-    role: "Попередня посада",
-    company: "Попередня компанія",
+    role: "Previous Role",
+    company: "Previous Company",
     period: "2020 — 2022",
-    description: "Опис досвіду.",
+    description: "Description of experience.",
   },
 ];
 
@@ -29,32 +29,32 @@ export default function Home() {
       <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
         <nav className="mx-auto flex max-w-2xl items-center justify-between px-6 py-4">
           <span className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-            Портфоліо
+            Portfolio
           </span>
           <div className="flex gap-6">
             <a
               href="#about"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
             >
-              Про мене
+              About
             </a>
             <a
               href="#skills"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
             >
-              Навички
+              Skills
             </a>
             <a
               href="#experience"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
             >
-              Досвід
+              Experience
             </a>
             <a
               href="#contact"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
             >
-              Контакт
+              Contact
             </a>
           </div>
         </nav>
@@ -64,17 +64,17 @@ export default function Home() {
         {/* Hero */}
         <section className="mb-20 text-center">
           <h1 className="mb-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
-            Імʼя Прізвище
+            Your Name
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Короткий заголовок — наприклад: Frontend Developer, Fullstack Engineer
+            Short tagline — e.g. Frontend Developer, Fullstack Engineer
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Link
               href="#contact"
               className="rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
             >
-              Звʼязатися
+              Get in touch
             </Link>
             <a
               href="/cv.pdf"
@@ -82,7 +82,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="rounded-full border border-zinc-300 px-5 py-2.5 text-sm font-medium text-zinc-700 transition hover:border-zinc-400 hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:bg-zinc-800"
             >
-              Завантажити CV
+              Download CV
             </a>
           </div>
         </section>
@@ -90,18 +90,19 @@ export default function Home() {
         {/* About */}
         <section id="about" className="mb-20 scroll-mt-20">
           <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-            Про мене
+            About
           </h2>
           <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Короткий абзац про себе: чим займаєтесь, що цікавить, чому шукаєте
-            нові можливості. Зручно для рекрутерів — вони одразу бачать контекст.
+            A short paragraph about yourself: what you do, what you care about,
+            why you are open to new opportunities. Handy for recruiters — they
+            get context at a glance.
           </p>
         </section>
 
         {/* Skills */}
         <section id="skills" className="mb-20 scroll-mt-20">
           <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-            Навички
+            Skills
           </h2>
           <ul className="flex flex-wrap gap-2">
             {skills.map((skill) => (
@@ -118,7 +119,7 @@ export default function Home() {
         {/* Experience */}
         <section id="experience" className="mb-20 scroll-mt-20">
           <h2 className="mb-6 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-            Досвід
+            Experience
           </h2>
           <ul className="space-y-8">
             {experience.map((item) => (
@@ -142,10 +143,10 @@ export default function Home() {
         {/* Contact */}
         <section id="contact" className="scroll-mt-20">
           <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-            Контакт
+            Contact
           </h2>
           <p className="mb-6 text-zinc-600 dark:text-zinc-400">
-            Готовий обговорити вакансії та проєкти. Напишіть на пошту або в
+            Open to discussing roles and projects. Reach out via email or
             LinkedIn.
           </p>
           <div className="flex flex-wrap gap-4">
@@ -177,7 +178,7 @@ export default function Home() {
 
       <footer className="border-t border-zinc-200 py-6 dark:border-zinc-800">
         <p className="text-center text-sm text-zinc-500 dark:text-zinc-400">
-          © {new Date().getFullYear()} Портфоліо. Зроблено з Next.js.
+          © {new Date().getFullYear()} Portfolio. Built with Next.js.
         </p>
       </footer>
     </div>

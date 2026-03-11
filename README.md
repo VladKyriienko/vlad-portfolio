@@ -1,44 +1,44 @@
-# Портфоліо для рекрутерів
+# Portfolio for Recruiters
 
-Простий односторінковий портфоліо на Next.js (App Router), TypeScript та Tailwind CSS. Підходить для поділу з рекрутерами — Hero, Про мене, Навички, Досвід, Контакт.
+A simple one-page portfolio built with Next.js (App Router), TypeScript, and Tailwind CSS. Suited for sharing with recruiters — Hero, About, Skills, Experience, Contact.
 
-## Технології
+## Tech Stack
 
 - **Next.js 16** (App Router)
 - **TypeScript**
 - **Tailwind CSS**
-- **Bun** (пакетний менеджер та runtime)
+- **Bun** (package manager and runtime)
 
-## Як запустити
+## Getting Started
 
 ```bash
-# Встановити залежності (якщо ще не встановлено)
+# Install dependencies (if not already installed)
 bun install
 
-# Режим розробки
+# Development mode
 bun run dev
 ```
 
-Відкрийте [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000).
 
-## Інші команди
+## Other Commands
 
 ```bash
-# Збірка для продакшену
+# Production build
 bun run build
 
-# Запуск продакшен-збірки
+# Run production build
 bun run start
 
-# Перевірка коду (ESLint)
+# Lint (ESLint)
 bun run lint
 ```
 
-## Що змінити під себе
+## Customization
 
-1. **`src/app/page.tsx`** — замініть placeholder-тексти:
-   - імʼя та заголовок у Hero;
-   - блок «Про мене»;
-   - масиви `skills` та `experience`;
-   - посилання на CV (`/cv.pdf`), email, LinkedIn, Telegram.
-2. Додайте файл **`public/cv.pdf`** для кнопки «Завантажити CV».
+1. **`src/app/page.tsx`** — replace placeholder content:
+   - name and tagline in Hero;
+   - About section text;
+   - `skills` and `experience` arrays;
+   - CV link (`/cv.pdf`), email, LinkedIn, Telegram.
+2. Add **`public/cv.pdf`** for the “Download CV” button.

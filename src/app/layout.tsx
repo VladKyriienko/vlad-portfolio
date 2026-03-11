@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Resume for Recruiters",
-  description: "Professional portfolio for recruiters — experience, skills, contact",
+  title: "Vladyslav Kyriienko | Junior Web Developer",
+  description:
+    "Junior Web Developer — React, Next.js, Supabase, Stripe. Open to roles in the UK or Remote.",
 };
 
 export default function RootLayout({

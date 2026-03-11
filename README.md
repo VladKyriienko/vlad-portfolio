@@ -24,14 +24,17 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Other Commands
 
 ```bash
-# Production build (outputs static site to ./out)
+# Production build
 bun run build
+
+# Run production build locally
+bun run start
 
 # Lint (ESLint)
 bun run lint
 ```
 
-The app uses **static export** (`output: 'export'`). After `bun run build`, deploy the **`out`** folder to any static host (Vercel, Cloudflare Pages, Netlify, etc.). On Vercel, the default build picks this up automatically; no extra config needed.
+**Deploy on Vercel:** Connect the repo; `vercel.json` is set to use Bun for install and build. No extra settings needed.
 
 ## Customization
 

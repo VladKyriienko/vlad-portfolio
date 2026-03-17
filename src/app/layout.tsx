@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Портфоліо | Резюме для рекрутерів",
-  description: "Професійне портфоліо для рекрутерів — досвід, навички, контакти",
+  title: "Vladyslav Kyriienko | Junior Web Developer",
+  description:
+    "Junior Web Developer — React, Next.js, Supabase, Stripe. Open to roles in the UK or Remote.",
 };
 
 export default function RootLayout({
@@ -23,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -2,6 +2,7 @@
 
 import { jsPDF } from "jspdf";
 import { cvData } from "@/lib/cv-data";
+import { withBasePath } from "@/lib/base-path";
 
 const MARGIN = 20;
 const PAGE_W = 210;
@@ -43,7 +44,9 @@ export function DownloadCVButton() {
     let photoH = PHOTO_SIZE;
     try {
       const imgUrl =
-        typeof window !== "undefined" ? `${window.location.origin}/photo.jpg` : "";
+        typeof window !== "undefined"
+          ? `${window.location.origin}${withBasePath("/photo.jpg")}`
+          : "";
       const res = await fetch(imgUrl);
       const blob = await res.blob();
       photoData = await new Promise<string>((resolve, reject) => {

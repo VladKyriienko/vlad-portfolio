@@ -1,0 +1,2 @@
+:HL["/vlad-portfolio/_next/static/chunks/b7ed0bcd264bbb98.css","style"]
+0:{"buildId":"_HWvf0H6-lFp5dU3t4zsK","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"/_not-found","paramType":null,"paramKey":"/_not-found","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

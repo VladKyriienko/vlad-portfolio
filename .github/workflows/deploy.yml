@@ -3,23 +3,35 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - uses: actions/setup-node@v4
+
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: '18'
-      
+          bun-version: latest
+
       - name: Install dependencies
-        run: npm install
-      
+        run: bun install --frozen-lockfile
+
       - name: Build with basePath for GitHub Pages
-        run: NEXT_PUBLIC_BASE_PATH=/vlad-portfolio npm run build
-      
+        env:
+          NEXT_PUBLIC_BASE_PATH: /vlad-portfolio
+        run: bun run build
+
       - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -27,9 +39,6 @@ jobs:
 
   deploy:
     needs: build-and-deploy
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

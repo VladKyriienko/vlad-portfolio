@@ -55,7 +55,7 @@ export default function Home() {
         <section className="mb-20 text-center">
           <div className="mb-6 flex justify-center">
             <img
-              src="/vlad-portfolio/photo.jpg"
+              src="/photo.jpg"
               alt={cvData.name}
               width={160}
               height={160}

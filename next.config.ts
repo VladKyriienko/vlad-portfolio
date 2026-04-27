@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   basePath: "/vlad-portfolio",
   trailingSlash: true,
   distDir: "docs",
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;

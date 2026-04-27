@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { cvData } from "@/lib/cv-data";
 import { DownloadCVButton } from "@/components/DownloadCVButton";
 
@@ -55,13 +54,12 @@ export default function Home() {
         {/* Hero */}
         <section className="mb-20 text-center">
           <div className="mb-6 flex justify-center">
-            <Image
-              src="/photo.jpg"
+            <img
+              src="/vlad-portfolio/photo.jpg"
               alt={cvData.name}
               width={160}
               height={160}
               className="rounded-full object-cover"
-              priority
             />
           </div>
           <h1 className="mb-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">

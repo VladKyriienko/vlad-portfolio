@@ -19,8 +19,12 @@ export const cvData = {
   techStack: [
     "React",
     "Next.js",
+    "JavaScript",
     "TypeScript",
+    "HTML",
+    "CSS",
     "Tailwind CSS",
+    "Node.js",
     "Supabase",
     "PostgreSQL",
     "REST APIs",
@@ -34,8 +38,8 @@ export const cvData = {
   ],
 
   techStackGroups: [
-    { label: "Frontend:", value: "React, Next.js, TypeScript, Tailwind CSS" },
-    { label: "Backend:", value: "Supabase, PostgreSQL, REST APIs" },
+    { label: "Frontend:", value: "HTML, CSS, JavaScript ,React, Next.js, TypeScript, Tailwind CSS" },
+    { label: "Backend:", value: "Node.js, Supabase, PostgreSQL, REST APIs" },
     { label: "Payments:", value: "Stripe (Subscriptions, Checkout, Webhooks)" },
     { label: "No-code / CMS:", value: "Bubble, Webflow" },
     { label: "Tools:", value: "Git, GitHub, Vercel, Figma" },

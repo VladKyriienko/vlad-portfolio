@@ -118,6 +118,7 @@ export const cvData = {
         'Structured content to highlight services and trust',
         'Optimized for performance and fast loading',
         'Implemented responsive design',
+        'API integration with Google Maps, Google Places and Resend email service',
         'Deployed the landing page on Vercel',
       ],
       stack: 'Next.js, Tailwind CSS, TypeScript, Vercel',

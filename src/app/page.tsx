@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cvData } from "@/lib/cv-data";
 import { withBasePath } from "@/lib/base-path";
 import { DownloadCVButton } from "@/components/DownloadCVButton";
@@ -55,7 +56,7 @@ export default function Home() {
         {/* Hero */}
         <section className="mb-20 text-center">
           <div className="mb-6 flex justify-center">
-            <img
+            <Image
               src={withBasePath("/photo.jpg")}
               alt={cvData.name}
               width={160}
@@ -113,6 +114,18 @@ export default function Home() {
               <p key={i}>{p}</p>
             ))}
           </div>
+        </section>
+
+        {/* What I do */}
+        <section className="mb-20 scroll-mt-20">
+          <h2 className="mb-4 text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+            What I do
+          </h2>
+          <ul className="list-inside list-disc space-y-1 text-zinc-600 dark:text-zinc-400">
+            {cvData.whatIDo.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </section>
 
         {/* Tech Stack */}
@@ -195,6 +208,14 @@ export default function Home() {
                     ))}
                   </ul>
                 )}
+                {"result" in project && project.result && (
+                  <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                    <span className="font-medium text-zinc-700 dark:text-zinc-300">
+                      Result:
+                    </span>{" "}
+                    {project.result}
+                  </p>
+                )}
                 <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
                   Stack: {project.stack}
                 </p>
@@ -203,7 +224,7 @@ export default function Home() {
                     <span>
                       Live:{" "}
                       {"liveUrl" in project &&
-                      (project as { liveUrl?: string }).liveUrl ? (
+                        (project as { liveUrl?: string }).liveUrl ? (
                         <a
                           href={(project as { liveUrl: string }).liveUrl}
                           target="_blank"
@@ -221,7 +242,7 @@ export default function Home() {
                     <span>
                       Code:{" "}
                       {"codeUrl" in project &&
-                      (project as { codeUrl?: string }).codeUrl ? (
+                        (project as { codeUrl?: string }).codeUrl ? (
                         <a
                           href={(project as { codeUrl: string }).codeUrl}
                           target="_blank"

@@ -1,6 +1,6 @@
 export const cvData = {
   name: 'Vladyslav Kyriienko',
-  title: 'Junior Web Developer',
+  title: 'Full-Stack Developer (Next.js, React, Supabase)',
   location: 'United Kingdom',
   availability: 'Open to UK & Remote roles',
   email: 'vladyslav.kirienko@gmail.com',
@@ -12,10 +12,19 @@ export const cvData = {
   githubDisplay: 'github.com/VladKyriienko',
 
   aboutParagraphs: [
-    "I'm a Junior Web Developer passionate about turning ideas into real web applications.",
-    'Before 2025: Built functional products using no-code platforms like Bubble and Webflow',
-    'Since 2025: Using AI-assisted development tools to speed up coding, automate repetitive tasks, and create smarter features',
-    'I focus on full-stack development, integrating databases, authentication, dashboards, and payment systems, and enjoy learning new tools to deliver high-quality apps.',
+    'I’m a Next.js developer focused on building modern web applications and admin dashboards.',
+    'I don’t just create websites — I develop scalable products with authentication, dashboards, and real business functionality.',
+    'I’ve worked on projects in education, logistics, and service-based businesses, helping improve user experience and simplify internal processes.',
+    'My goal is to build clean, fast, and user-friendly solutions that deliver real value.',
+  ],
+
+  whatIDo: [
+    'Web Applications (Next.js / React / TypeScript)',
+    'Admin Dashboards',
+    'Payment Integration (Stripe)',
+    'API Integration',
+    'Responsive UI/UX',
+    'Performance Optimization',
   ],
 
   techStack: [
@@ -79,15 +88,20 @@ export const cvData = {
   projects: [
     {
       name: 'Ukrainian School in Leeds',
-      role: 'Full-stack development from scratch',
+      role: 'Developed a full-featured web application for a Ukrainian school.',
       description:
         'Educational platform for a Ukrainian community school including authentication, admin dashboard, and dynamic content management.',
+      result:
+        'Simplified management for administrators and improved user experience for parents and students.',
       bullets: [
-        'Built the platform from scratch with authentication, admin dashboard, and dynamic pages',
-        'Integrated Stripe payments for school subscriptions and donations',
-        'Developed responsive UI and deployed the live system',
+        'Built authentication system and admin dashboard',
+        'Implemented Stripe payments for subscriptions and donations',
+        'Created dynamic pages for content management',
+        'Designed responsive UI for all devices',
+        'Deployed the application on Vercel',
       ],
-      stack: 'Next.js, Supabase, Tailwind, Stripe',
+      stack:
+        'Next.js, TypeScript, Tailwind, Supabase, Stripe, Vercel',
       live: 'ukrainian-school-leeds.vercel.app',
       liveUrl: 'https://ukrainian-school-leeds.vercel.app',
       code: 'Private repository (available on request)',
@@ -96,6 +110,8 @@ export const cvData = {
       name: 'LifeDash',
       role: 'Team Project',
       description: 'Health-focused SaaS',
+      result:
+        'Improved user engagement by delivering dashboards and subscription flows with a clean, responsive UI.',
       bullets: [
         'Developed dashboards, subscription flows, and backend as part of a team',
       ],
@@ -108,6 +124,8 @@ export const cvData = {
       name: 'Tortoise',
       role: 'Team Project',
       description: 'Next.js SaaS Project',
+      result:
+        'Provided a secure and responsive dashboard experience with smoother onboarding and daily usage.',
       bullets: [
         'Dynamic pages, secure backend, user authentication, responsive dashboard developed collaboratively',
       ],
@@ -120,6 +138,8 @@ export const cvData = {
       name: 'DS5 Construction',
       role: 'Full-cycle development (from layout to deployment)',
       description: 'Corporate Construction Website',
+      result:
+        'Delivered a fast, modern marketing site with clear service presentation and mobile-first UX.',
       bullets: [
         'Built with Next.js, all content stored in JSON files',
         'Responsive design and user-friendly interface',
@@ -132,6 +152,8 @@ export const cvData = {
       name: 'GO Network',
       role: 'Full website development in Webflow',
       description: 'Corporate Website',
+      result:
+        'Enabled easy content updates through a CMS-driven structure while maintaining consistent branding.',
       bullets: ['CMS-driven pages and static content'],
       stack: 'Webflow',
       live: 'thegonetwork.com',
@@ -141,6 +163,8 @@ export const cvData = {
       name: 'TFS Express Logistics',
       role: 'Full website development in Webflow',
       description: 'Corporate Logistics Website',
+      result:
+        'Launched a responsive website that is easy to maintain and improves clarity of services and navigation.',
       bullets: [
         'Built entirely on Webflow',
         'Responsive design, CMS content, and interactive sections',

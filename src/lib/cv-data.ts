@@ -137,12 +137,16 @@ export const cvData = {
     {
       name: 'DS5 Construction',
       role: 'Full-cycle development (from layout to deployment)',
-      description: 'Corporate Construction Website',
+      description:
+        'Developed a high-converting landing page for a construction company.',
       result:
-        'Delivered a fast, modern marketing site with clear service presentation and mobile-first UX.',
+        'Improved online presence and increased potential client inquiries.',
       bullets: [
-        'Built with Next.js, all content stored in JSON files',
-        'Responsive design and user-friendly interface',
+        'Designed clean and professional UI',
+        'Structured content to highlight services and trust',
+        'Optimized for performance and fast loading',
+        'Implemented responsive design',
+        'Deployed the landing page on Vercel',
       ],
       stack: 'Next.js, Tailwind CSS, TypeScript, Vercel',
       live: 'ds5construction.vercel.app',
@@ -151,25 +155,33 @@ export const cvData = {
     {
       name: 'GO Network',
       role: 'Full website development in Webflow',
-      description: 'Corporate Website',
+      description:
+        'Developed a platform-style website for a marketing network connecting brands with agencies.',
       result:
         'Enabled easy content updates through a CMS-driven structure while maintaining consistent branding.',
-      bullets: ['CMS-driven pages and static content'],
-      stack: 'Webflow',
+      bullets: [
+        'Built structured and scalable frontend',
+        'Designed content-heavy layout for clarity',
+        'Optimized user flows for different audiences (brands & agencies)',
+        'Implemented responsive and modern UI',
+      ],
+      stack: 'Webflow, JavaScript, HTML, CSS',
       live: 'thegonetwork.com',
       liveUrl: 'https://thegonetwork.com',
     },
     {
       name: 'TFS Express Logistics',
-      role: 'Full website development in Webflow',
+      role: 'Built a modern logistics website focused on service presentation and lead generation.',
       description: 'Corporate Logistics Website',
       result:
-        'Launched a responsive website that is easy to maintain and improves clarity of services and navigation.',
+        'Improved service visibility and user engagement.',
       bullets: [
-        'Built entirely on Webflow',
-        'Responsive design, CMS content, and interactive sections',
+        'Structured content for clarity and user flow',
+        'Highlighted key services and delivery capabilities',
+        'Implemented responsive design',
+        'Optimized UI for better user experience',
       ],
-      stack: 'Webflow',
+      stack: 'Webflow, JavaScript, HTML, CSS',
       live: 'tfslogistics.com',
       liveUrl: 'https://tfslogistics.com',
     },

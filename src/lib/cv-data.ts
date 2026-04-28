@@ -107,34 +107,6 @@ export const cvData = {
       code: 'Private repository (available on request)',
     },
     {
-      name: 'LifeDash',
-      role: 'Team Project',
-      description: 'Health-focused SaaS',
-      result:
-        'Improved user engagement by delivering dashboards and subscription flows with a clean, responsive UI.',
-      bullets: [
-        'Developed dashboards, subscription flows, and backend as part of a team',
-      ],
-      stack: 'Next.js, Supabase, Stripe, Tailwind',
-      live: 'life-dash-lilac.vercel.app',
-      liveUrl: 'https://life-dash-lilac.vercel.app',
-      code: 'Private repository (available on request)',
-    },
-    {
-      name: 'Tortoise',
-      role: 'Team Project',
-      description: 'Next.js SaaS Project',
-      result:
-        'Provided a secure and responsive dashboard experience with smoother onboarding and daily usage.',
-      bullets: [
-        'Dynamic pages, secure backend, user authentication, responsive dashboard developed collaboratively',
-      ],
-      stack: 'Next.js, Supabase, Tailwind',
-      live: 'tortoise-decodifi.vercel.app',
-      liveUrl: 'https://tortoise-decodifi.vercel.app',
-      code: 'Private repository (available on request)',
-    },
-    {
       name: 'DS5 Construction',
       role: 'Full-cycle development (from layout to deployment)',
       description:
@@ -184,6 +156,34 @@ export const cvData = {
       stack: 'Webflow, JavaScript, HTML, CSS',
       live: 'tfslogistics.com',
       liveUrl: 'https://tfslogistics.com',
+    },
+    {
+      name: 'LifeDash',
+      role: 'Team Project',
+      description: 'Health-focused SaaS',
+      result:
+        'Improved user engagement by delivering dashboards and subscription flows with a clean, responsive UI.',
+      bullets: [
+        'Developed dashboards, subscription flows, and backend as part of a team',
+      ],
+      stack: 'Next.js, Supabase, Stripe, Tailwind',
+      live: 'life-dash-lilac.vercel.app',
+      liveUrl: 'https://life-dash-lilac.vercel.app',
+      code: 'Private repository (available on request)',
+    },
+    {
+      name: 'Tortoise',
+      role: 'Team Project',
+      description: 'Next.js SaaS Project',
+      result:
+        'Provided a secure and responsive dashboard experience with smoother onboarding and daily usage.',
+      bullets: [
+        'Dynamic pages, secure backend, user authentication, responsive dashboard developed collaboratively',
+      ],
+      stack: 'Next.js, Supabase, Tailwind',
+      live: 'tortoise-decodifi.vercel.app',
+      liveUrl: 'https://tortoise-decodifi.vercel.app',
+      code: 'Private repository (available on request)',
     },
   ],
 

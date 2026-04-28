@@ -71,15 +71,15 @@ export const cvData = {
 
   experience: [
     {
-      role: 'Web Developer',
+      role: 'Full-Stack Developer',
       company: 'Decodifi LTD',
       period: '2022 – 2026',
       bullets: [
-        'Developed responsive UI using Next.js, React, Tailwind',
-        'Built backend solutions with Supabase (Auth, PostgreSQL, RLS)',
-        'Integrated Stripe payments and subscriptions',
+        'Developed and maintained full-stack web applications using Next.js and Supabase',
+        'Built admin dashboards, authentication systems, and payment integrations (Stripe)',
+        'Improved performance and scalability of production applications',
         'Deployed and maintained production applications on Vercel',
-        'Used AI-assisted tools to speed up development and optimize code',
+        'Collaborated on SaaS products and internal tools',
         'Previously leveraged no-code platforms to prototype and deliver projects',
       ],
     },
@@ -143,8 +143,9 @@ export const cvData = {
     },
     {
       name: 'TFS Express Logistics',
-      role: 'Built a modern logistics website focused on service presentation and lead generation.',
-      description: 'Corporate Logistics Website',
+      role: 'Full website development in Webflow',
+      description:
+        'Built a modern logistics website focused on service presentation and lead generation.',
       result:
         'Improved service visibility and user engagement.',
       bullets: [
@@ -159,10 +160,10 @@ export const cvData = {
     },
     {
       name: 'LifeDash',
-      role: 'Team Project',
+      role: 'SaaS Application',
       description: 'Health-focused SaaS',
       result:
-        'Improved user engagement by delivering dashboards and subscription flows with a clean, responsive UI.',
+        'Increased user engagement through intuitive dashboards and smooth subscription experience.',
       bullets: [
         'Developed dashboards, subscription flows, and backend as part of a team',
       ],
@@ -173,14 +174,17 @@ export const cvData = {
     },
     {
       name: 'Tortoise',
-      role: 'Team Project',
+      role: 'SaaS Platform',
       description: 'Next.js SaaS Project',
       result:
-        'Provided a secure and responsive dashboard experience with smoother onboarding and daily usage.',
+        'Delivered a secure and scalable dashboard experience with improved onboarding flow.',
       bullets: [
-        'Dynamic pages, secure backend, user authentication, responsive dashboard developed collaboratively',
+        'Built dynamic pages and secure authentication system',
+        'Developed responsive admin dashboard',
+        'Integrated Stripe payments for subscriptions',
+        'Integrated backend logic with Supabase',
       ],
-      stack: 'Next.js, Supabase, Tailwind',
+      stack: 'Next.js, TypeScript, Supabase, Tailwind CSS',
       live: 'tortoise-decodifi.vercel.app',
       liveUrl: 'https://tortoise-decodifi.vercel.app',
       code: 'Private repository (available on request)',

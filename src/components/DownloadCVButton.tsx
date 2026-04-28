@@ -127,6 +127,20 @@ export function DownloadCVButton() {
     }
     y += SECTION_GAP;
 
+    // What I do
+    y = checkPageBreak(doc, y, 40);
+    doc.setFontSize(HEADING_SIZE);
+    doc.setFont("helvetica", "bold");
+    doc.text("What I do", MARGIN, y);
+    y += SECTION_GAP;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(BODY_SIZE);
+    for (const item of cvData.whatIDo) {
+      y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
+      y = wrapText(doc, `• ${item}`, MARGIN, y) + 1;
+    }
+    y += SECTION_GAP;
+
     // Tech Stack
     y = checkPageBreak(doc, y, 50);
     doc.setFontSize(HEADING_SIZE);
@@ -190,6 +204,10 @@ export function DownloadCVButton() {
           y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
           y = wrapText(doc, `• ${b}`, MARGIN + 2, y) + 1;
         }
+      }
+      if ("result" in proj && proj.result) {
+        y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
+        y = wrapText(doc, `Result: ${proj.result}`, MARGIN, y) + 1;
       }
       doc.text(`Stack: ${proj.stack}`, MARGIN, y);
       y += LINE_HEIGHT;

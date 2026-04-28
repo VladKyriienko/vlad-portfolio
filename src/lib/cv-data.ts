@@ -121,8 +121,8 @@ export const cvData = {
         'Deployed the landing page on Vercel',
       ],
       stack: 'Next.js, Tailwind CSS, TypeScript, Vercel',
-      live: 'ds5construction.vercel.app',
-      liveUrl: 'https://ds5construction.vercel.app',
+      live: 'ds5construction.co.uk',
+      liveUrl: 'https://ds5construction.co.uk',
     },
     {
       name: 'GO Network',

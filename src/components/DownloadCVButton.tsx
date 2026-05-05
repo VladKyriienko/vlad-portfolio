@@ -167,7 +167,7 @@ export function DownloadCVButton() {
     for (const exp of cvData.experience) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 4);
       doc.setFont("helvetica", "bold");
-      doc.text(`${exp.company} — ${exp.role}`, MARGIN, y);
+      doc.text(`${exp.company} - ${exp.role}`, MARGIN, y);
       y += LINE_HEIGHT;
       doc.setFont("helvetica", "normal");
       doc.text(exp.period, MARGIN, y);
@@ -192,7 +192,7 @@ export function DownloadCVButton() {
     for (const proj of cvData.projects) {
       const name = (proj as { name: string }).name;
       const role = (proj as { role?: string }).role;
-      const title = role ? `${name} — ${role}` : name;
+      const title = role ? `${name} - ${role}` : name;
       y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
       doc.setFont("helvetica", "bold");
       doc.text(title, MARGIN, y);
@@ -243,7 +243,7 @@ export function DownloadCVButton() {
     for (const ed of cvData.education) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 5);
       doc.setFont("helvetica", "bold");
-      doc.text(`${ed.name} — ${ed.program}`, MARGIN, y);
+      doc.text(`${ed.name} - ${ed.program}`, MARGIN, y);
       y += LINE_HEIGHT;
       doc.setFont("helvetica", "normal");
       doc.text(ed.period, MARGIN, y);

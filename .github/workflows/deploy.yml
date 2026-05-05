@@ -29,7 +29,7 @@ jobs:
 
       - name: Build with basePath for GitHub Pages
         env:
-          NEXT_PUBLIC_BASE_PATH: /vlad-portfolio
+          NEXT_PUBLIC_BASE_PATH: /portfolio
         run: bun run build
 
       - name: Upload pages artifact

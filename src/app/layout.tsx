@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vladyslav Kyriienko | Junior Web Developer",
+  title: "Vladyslav Kyriienko | Full Stack Developer",
   description:
-    "Junior Web Developer — React, Next.js, Supabase, Stripe. Open to roles in the UK or Remote.",
+    "Full Stack Developer — React, Next.js, Supabase, Stripe. Open to roles in the UK or Remote.",
 };
 
 export default function RootLayout({

@@ -165,7 +165,7 @@ export default function Home() {
               <li key={`${item.company}-${item.role}`}>
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
                   <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
-                    {item.company} — {item.role}
+                    {item.company} - {item.role}
                   </h3>
                   <span className="text-sm text-zinc-500 dark:text-zinc-400">
                     {item.period}
@@ -194,7 +194,7 @@ export default function Home() {
                   {"role" in project && project.role && (
                     <span className="font-normal text-zinc-600 dark:text-zinc-400">
                       {" "}
-                      — {project.role}
+                      - {project.role}
                     </span>
                   )}
                 </h3>
@@ -272,7 +272,7 @@ export default function Home() {
               <li key={item.name}>
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
                   <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
-                    {item.name} — {item.program}
+                    {item.name} - {item.program}
                   </h3>
                   <span className="text-sm text-zinc-500 dark:text-zinc-400">
                     {item.period}

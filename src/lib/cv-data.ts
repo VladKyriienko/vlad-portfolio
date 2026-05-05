@@ -13,13 +13,13 @@ export const cvData = {
 
   aboutParagraphs: [
     'I’m a Next.js developer focused on building modern web applications and admin dashboards.',
-    'I don’t just create websites — I develop scalable products with authentication, dashboards, and real business functionality.',
+    'I don’t just create websites - I develop scalable products with authentication, dashboards, and real business functionality.',
     'I’ve worked on projects in education, logistics, and service-based businesses, helping improve user experience and simplify internal processes.',
     'My goal is to build clean, fast, and user-friendly solutions that deliver real value.',
   ],
 
   whatIDo: [
-    'Web Applications (Next.js / React / TypeScript)',
+    'Web Applications (Next.js / React / JavaScript / TypeScript)',
     'Admin Dashboards',
     'Payment Integration (Stripe)',
     'API Integration',

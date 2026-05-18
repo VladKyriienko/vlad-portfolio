@@ -4,10 +4,11 @@ import { jsPDF } from "jspdf";
 import { cvData } from "@/lib/cv-data";
 import { withBasePath } from "@/lib/base-path";
 
-const MARGIN = 20;
+const MARGIN_X = 20;
+const MARGIN_Y = 16;
 const PAGE_W = 210;
 const PAGE_H = 297;
-const MAX_W = PAGE_W - MARGIN * 2;
+const MAX_W = PAGE_W - MARGIN_X * 2;
 const LINE_HEIGHT = 5.5;
 const SECTION_GAP = 6;
 const NAME_SIZE = 20;
@@ -15,9 +16,9 @@ const HEADING_SIZE = 11;
 const BODY_SIZE = 9;
 const NAME_BOTTOM_GAP = 5;
 const PHOTO_SIZE = 38;
-const PHOTO_X = MARGIN;
-const PHOTO_Y = MARGIN;
-const HEADER_TEXT_X = MARGIN + PHOTO_SIZE + 10;
+const PHOTO_X = MARGIN_X;
+const PHOTO_Y = MARGIN_Y;
+const HEADER_TEXT_X = MARGIN_X + PHOTO_SIZE + 10;
 
 function wrapText(doc: jsPDF, text: string, x: number, y: number): number {
   const lines = doc.splitTextToSize(text, MAX_W);
@@ -26,9 +27,9 @@ function wrapText(doc: jsPDF, text: string, x: number, y: number): number {
 }
 
 function checkPageBreak(doc: jsPDF, y: number, spaceNeeded: number): number {
-  if (y + spaceNeeded > PAGE_H - MARGIN) {
+  if (y + spaceNeeded > PAGE_H - MARGIN_Y) {
     doc.addPage();
-    return MARGIN;
+    return MARGIN_Y;
   }
   return y;
 }
@@ -36,7 +37,7 @@ function checkPageBreak(doc: jsPDF, y: number, spaceNeeded: number): number {
 export function DownloadCVButton() {
   const handleDownload = async () => {
     const doc = new jsPDF();
-    let y = MARGIN;
+    let y = MARGIN_Y;
 
     // Load photo for PDF (same origin), preserve aspect ratio
     let photoData: string | null = null;
@@ -75,7 +76,7 @@ export function DownloadCVButton() {
       doc.addImage(photoData, "JPEG", PHOTO_X, PHOTO_Y, photoW, photoH);
     }
 
-    let headerY = MARGIN;
+    let headerY = MARGIN_Y;
     doc.setFontSize(NAME_SIZE);
     doc.setFont("helvetica", "bold");
     doc.text(cvData.name, HEADER_TEXT_X, headerY + 5);
@@ -117,13 +118,13 @@ export function DownloadCVButton() {
     y = checkPageBreak(doc, y, 40);
     doc.setFontSize(HEADING_SIZE);
     doc.setFont("helvetica", "bold");
-    doc.text("About Me", MARGIN, y);
+    doc.text("About Me", MARGIN_X, y);
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
     for (const p of cvData.aboutParagraphs) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
-      y = wrapText(doc, p, MARGIN, y) + 2;
+      y = wrapText(doc, p, MARGIN_X, y) + 2;
     }
     y += SECTION_GAP;
 
@@ -131,13 +132,13 @@ export function DownloadCVButton() {
     y = checkPageBreak(doc, y, 40);
     doc.setFontSize(HEADING_SIZE);
     doc.setFont("helvetica", "bold");
-    doc.text("What I do", MARGIN, y);
+    doc.text("What I do", MARGIN_X, y);
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
     for (const item of cvData.whatIDo) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-      y = wrapText(doc, `• ${item}`, MARGIN, y) + 1;
+      y = wrapText(doc, `• ${item}`, MARGIN_X, y) + 1;
     }
     y += SECTION_GAP;
 
@@ -145,13 +146,13 @@ export function DownloadCVButton() {
     y = checkPageBreak(doc, y, 50);
     doc.setFontSize(HEADING_SIZE);
     doc.setFont("helvetica", "bold");
-    doc.text("Tech Stack", MARGIN, y);
+    doc.text("Tech Stack", MARGIN_X, y);
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
     for (const g of cvData.techStackGroups) {
       y = checkPageBreak(doc, y, LINE_HEIGHT);
-      doc.text(`${g.label} ${g.value}`, MARGIN, y);
+      doc.text(`${g.label} ${g.value}`, MARGIN_X, y);
       y += LINE_HEIGHT;
     }
     y += SECTION_GAP;
@@ -160,22 +161,22 @@ export function DownloadCVButton() {
     y = checkPageBreak(doc, y, 60);
     doc.setFontSize(HEADING_SIZE);
     doc.setFont("helvetica", "bold");
-    doc.text("Experience", MARGIN, y);
+    doc.text("Experience", MARGIN_X, y);
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
     for (const exp of cvData.experience) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 4);
       doc.setFont("helvetica", "bold");
-      doc.text(`${exp.company} - ${exp.role}`, MARGIN, y);
+      doc.text(`${exp.company} - ${exp.role}`, MARGIN_X, y);
       y += LINE_HEIGHT;
       doc.setFont("helvetica", "normal");
-      doc.text(exp.period, MARGIN, y);
+      doc.text(exp.period, MARGIN_X, y);
       y += LINE_HEIGHT;
       doc.setFont("helvetica", "normal");
       for (const b of exp.bullets) {
         y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-        y = wrapText(doc, `• ${b}`, MARGIN + 2, y) + 1;
+        y = wrapText(doc, `• ${b}`, MARGIN_X + 2, y) + 1;
       }
       y += 4;
     }
@@ -185,7 +186,7 @@ export function DownloadCVButton() {
     y = checkPageBreak(doc, y, 40);
     doc.setFontSize(HEADING_SIZE);
     doc.setFont("helvetica", "bold");
-    doc.text("Projects", MARGIN, y);
+    doc.text("Projects", MARGIN_X, y);
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
@@ -195,36 +196,36 @@ export function DownloadCVButton() {
       const title = role ? `${name} - ${role}` : name;
       y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
       doc.setFont("helvetica", "bold");
-      doc.text(title, MARGIN, y);
+      doc.text(title, MARGIN_X, y);
       y += LINE_HEIGHT;
       doc.setFont("helvetica", "normal");
-      y = wrapText(doc, proj.description, MARGIN, y) + 1;
+      y = wrapText(doc, proj.description, MARGIN_X, y) + 1;
       if ("bullets" in proj && proj.bullets) {
         for (const b of proj.bullets) {
           y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-          y = wrapText(doc, `• ${b}`, MARGIN + 2, y) + 1;
+          y = wrapText(doc, `• ${b}`, MARGIN_X + 2, y) + 1;
         }
       }
       if ("result" in proj && proj.result) {
         y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
-        y = wrapText(doc, `Result: ${proj.result}`, MARGIN, y) + 1;
+        y = wrapText(doc, `Result: ${proj.result}`, MARGIN_X, y) + 1;
       }
-      doc.text(`Stack: ${proj.stack}`, MARGIN, y);
+      doc.text(`Stack: ${proj.stack}`, MARGIN_X, y);
       y += LINE_HEIGHT;
       const p = proj as { live?: string; liveUrl?: string; code?: string; codeUrl?: string };
       if (p.live) {
         if (p.liveUrl) {
-          doc.textWithLink(`Live: ${p.live}`, MARGIN, y, { url: p.liveUrl });
+          doc.textWithLink(`Live: ${p.live}`, MARGIN_X, y, { url: p.liveUrl });
         } else {
-          doc.text(`Live: ${p.live}`, MARGIN, y);
+          doc.text(`Live: ${p.live}`, MARGIN_X, y);
         }
         y += LINE_HEIGHT;
       }
       if (p.code) {
         if (p.codeUrl) {
-          doc.textWithLink(`Code: ${p.code}`, MARGIN, y, { url: p.codeUrl });
+          doc.textWithLink(`Code: ${p.code}`, MARGIN_X, y, { url: p.codeUrl });
         } else {
-          doc.text(`Code: ${p.code}`, MARGIN, y);
+          doc.text(`Code: ${p.code}`, MARGIN_X, y);
         }
         y += LINE_HEIGHT;
       }
@@ -236,19 +237,19 @@ export function DownloadCVButton() {
     y = checkPageBreak(doc, y, 40);
     doc.setFontSize(HEADING_SIZE);
     doc.setFont("helvetica", "bold");
-    doc.text("Education", MARGIN, y);
+    doc.text("Education", MARGIN_X, y);
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
     for (const ed of cvData.education) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 5);
       doc.setFont("helvetica", "bold");
-      doc.text(`${ed.name} - ${ed.program}`, MARGIN, y);
+      doc.text(`${ed.name} - ${ed.program}`, MARGIN_X, y);
       y += LINE_HEIGHT;
       doc.setFont("helvetica", "normal");
-      doc.text(ed.period, MARGIN, y);
+      doc.text(ed.period, MARGIN_X, y);
       y += LINE_HEIGHT;
-      y = wrapText(doc, ed.description, MARGIN, y) + 4;
+      y = wrapText(doc, ed.description, MARGIN_X, y) + 4;
     }
     y += SECTION_GAP;
 
@@ -256,20 +257,20 @@ export function DownloadCVButton() {
     y = checkPageBreak(doc, y, 40);
     doc.setFontSize(HEADING_SIZE);
     doc.setFont("helvetica", "bold");
-    doc.text("Key Strengths", MARGIN, y);
+    doc.text("Key Strengths", MARGIN_X, y);
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
     for (const s of cvData.keyStrengths) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-      y = wrapText(doc, `• ${s}`, MARGIN, y) + 1;
+      y = wrapText(doc, `• ${s}`, MARGIN_X, y) + 1;
     }
     y += SECTION_GAP;
 
     y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
     doc.text(
       `Availability: ${cvData.availability}. Reach out via email or LinkedIn.`,
-      MARGIN,
+      MARGIN_X,
       y
     );
 

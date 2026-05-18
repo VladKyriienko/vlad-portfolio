@@ -103,7 +103,7 @@ export const cvData = {
       stack:
         'Next.js, TypeScript, Tailwind, Supabase, Stripe, Vercel',
       live: 'ukrainian-school-leeds.vercel.app',
-      liveUrl: 'https://ukrainian-school-leeds.vercel.app',
+      liveUrl: 'https://ukrainianschoolleeds.vercel.app',
       code: 'Private repository (available on request)',
     },
     {

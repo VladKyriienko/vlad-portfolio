@@ -12,10 +12,10 @@ export const cvData = {
   githubDisplay: 'github.com/VladKyriienko',
 
   aboutParagraphs: [
-    'I’m a Next.js developer focused on building modern web applications and admin dashboards.',
-    'I don’t just create websites - I develop scalable products with authentication, dashboards, and real business functionality.',
-    'I’ve worked on projects in education, logistics, and service-based businesses, helping improve user experience and simplify internal processes.',
-    'My goal is to build clean, fast, and user-friendly solutions that deliver real value.',
+    'Full-Stack Developer focused on building web applications with Next.js, Supabase, Tailwind CSS, and Stripe.',
+    'I’ve developed logistics platforms, construction websites, school systems, and dashboard-based applications. My work covers frontend development, backend integrations, authentication, payments, and admin systems.',
+    'Previously, I built and delivered products using no-code tools such as Bubble and Webflow, which gave me strong product thinking and rapid prototyping experience. Today, I combine that background with AI-assisted development workflows to speed up delivery and improve development efficiency.',
+    'I enjoy building practical, user-focused products and collaborating on fast-moving teams. Open to full-stack or frontend opportunities in the UK and remote.',
   ],
 
   whatIDo: [

@@ -281,7 +281,7 @@ export function DownloadCVButton() {
     <button
       type="button"
       onClick={() => void handleDownload()}
-      className="cursor-pointer rounded-full bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
+      className="cursor-pointer rounded-full bg-(--btn-primary-bg) px-5 py-2.5 text-sm font-medium text-(--btn-primary-text) transition hover:bg-(--btn-primary-bg-hover)"
     >
       Download CV
     </button>

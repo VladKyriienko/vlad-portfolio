@@ -186,80 +186,94 @@ export default function Home() {
           <h2 className="mb-6 text-xl font-semibold text-(--text-primary)">
             Projects
           </h2>
-          <ul className="space-y-8">
-            {cvData.projects.map((project) => (
-              <li key={project.name}>
-                <h3 className="font-medium text-(--text-primary)">
-                  {project.name}
-                  {"role" in project && project.role && (
-                    <span className="font-normal text-(--text-secondary)">
-                      {" "}
-                      - {project.role}
-                    </span>
-                  )}
-                </h3>
-                <p className="mt-1 text-(--text-secondary)">
-                  {project.description}
-                </p>
-                {"bullets" in project && project.bullets && (
-                  <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-(--text-secondary)">
-                    {project.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                )}
-                {"result" in project && project.result && (
-                  <p className="mt-2 text-sm text-(--text-secondary)">
-                    <span className="font-medium text-(--text-strong)">
-                      Result:
-                    </span>{" "}
-                    {project.result}
-                  </p>
-                )}
-                <p className="mt-1 text-sm text-(--text-muted)">
-                  Stack: {project.stack}
-                </p>
-                <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-(--text-muted)">
-                  {"live" in project && (project as { live?: string }).live && (
-                    <span>
-                      Live:{" "}
-                      {"liveUrl" in project &&
-                        (project as { liveUrl?: string }).liveUrl ? (
-                        <a
-                          href={(project as { liveUrl: string }).liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline hover:text-(--text-strong)"
-                        >
-                          {(project as { live: string }).live}
-                        </a>
-                      ) : (
-                        (project as { live: string }).live
+          {cvData.projects.map((section) => (
+            <div key={section.title} className="mb-8">
+              <h3 className="mb-4 font-medium text-(--text-primary)">
+                {section.title}
+              </h3>
+              <ul className="space-y-8">
+                {section.projects.map((project) => (
+                  <li key={project.name}>
+                    <h4 className="font-medium text-(--text-primary)">
+                      {project.name}
+                      {"role" in project && project.role && (
+                        <span className="font-normal text-(--text-secondary)">
+                          {" "}
+                          - {project.role}
+                        </span>
                       )}
-                    </span>
-                  )}
-                  {"code" in project && (project as { code?: string }).code && (
-                    <span>
-                      Code:{" "}
-                      {"codeUrl" in project &&
-                        (project as { codeUrl?: string }).codeUrl ? (
-                        <a
-                          href={(project as { codeUrl: string }).codeUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline hover:text-(--text-strong)"
-                        >
-                          {(project as { code: string }).code}
-                        </a>
-                      ) : (
-                        (project as { code: string }).code
+                    </h4>
+                    <p className="mt-1 text-(--text-secondary)">
+                      {project.description}
+                    </p>
+                    {"bullets" in project && project.bullets && (
+                      <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-(--text-secondary)">
+                        {project.bullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {"result" in project && project.result && (
+                      <p className="mt-2 text-sm text-(--text-secondary)">
+                        <span className="font-medium text-(--text-strong)">
+                          Result:
+                        </span>{" "}
+                        {project.result}
+                      </p>
+                    )}
+                    <p className="mt-1 text-sm text-(--text-muted)">
+                      <span className="font-medium text-(--text-strong)">
+                        Stack:
+                      </span>{" "}
+                      {project.stack}
+                    </p>
+                    <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-(--text-muted)">
+                      {"live" in project && (project as { live?: string }).live && (
+                        <span>
+                          <span className="font-medium text-(--text-strong)">
+                            Live:
+                          </span>{" "}
+                          {"liveUrl" in project &&
+                            (project as { liveUrl?: string }).liveUrl ? (
+                            <a
+                              href={(project as { liveUrl: string }).liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline hover:text-(--text-strong)"
+                            >
+                              {(project as { live: string }).live}
+                            </a>
+                          ) : (
+                            (project as { live: string }).live
+                          )}
+                        </span>
                       )}
-                    </span>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
+                      {"code" in project && (project as { code?: string }).code && (
+                        <span>
+                          <span className="font-medium text-(--text-strong)">
+                            Code:
+                          </span>{" "}
+                          {"codeUrl" in project &&
+                            (project as { codeUrl?: string }).codeUrl ? (
+                            <a
+                              href={(project as { codeUrl: string }).codeUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline hover:text-(--text-strong)"
+                            >
+                              {(project as { code: string }).code}
+                            </a>
+                          ) : (
+                            (project as { code: string }).code
+                          )}
+                        </span>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </section>
 
         {/* Education */}

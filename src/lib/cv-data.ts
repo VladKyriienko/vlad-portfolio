@@ -1,6 +1,7 @@
 export const cvData = {
   name: 'Vladyslav Kyriienko',
-  title: 'Full-Stack Developer (Next.js, React, Supabase)',
+  title:
+    'Full-Stack Developer | React, Next.js, TypeScript, Supabase, Stripe | SaaS & Admin Dashboards',
   location: 'United Kingdom',
   availability: 'Open to UK & Remote roles',
   email: 'vladyslav.kirienko@gmail.com',
@@ -94,126 +95,146 @@ export const cvData = {
 
   projects: [
     {
-      name: 'Ukrainian School in Leeds',
-      role: 'Developed a full-featured web application for a Ukrainian school.',
-      description:
-        'Educational platform for a Ukrainian community school including authentication, admin dashboard, and dynamic content management.',
-      result:
-        'Simplified management for administrators and improved user experience for parents and students.',
-      bullets: [
-        'Built authentication system and admin dashboard',
-        'Implemented Stripe payments for subscriptions and donations',
-        'Created dynamic pages for content management',
-        'Designed responsive UI for all devices',
-        'Deployed the application on Vercel',
+      title: 'Featured Full-Stack Projects',
+      projects: [
+        {
+          name: 'Ukrainian School in Leeds',
+          role: 'Developed a full-featured web application for a Ukrainian school.',
+          description:
+            'Educational platform for a Ukrainian community school with authentication, admin dashboard, dynamic content management, subscriptions, and donations.',
+          result:
+            'Simplified management for administrators and improved user experience for parents and students.',
+          bullets: [
+            'Built authentication system and admin dashboard',
+            'Implemented Stripe payments for subscriptions and donations',
+            'Created dynamic pages for content management',
+            'Designed responsive UI for all devices',
+            'Deployed the application on Vercel',
+          ],
+          stack:
+            'Next.js, TypeScript, Tailwind, Supabase, Stripe, Vercel',
+          live: 'ukrainian-school-leeds.vercel.app',
+          liveUrl:
+            'https://ukrainianschoolleeds.vercel.app',
+        },
+        {
+          name: 'Tortoise',
+          role: 'SaaS Platform',
+          description:
+            'Next.js SaaS application with secure authentication, admin dashboard, dynamic pages, and subscription payments.',
+          result:
+            'Delivered a secure and scalable dashboard experience with improved onboarding flow.',
+          bullets: [
+            'Built dynamic pages and secure authentication flows',
+            'Developed responsive admin dashboard',
+            'Integrated Stripe payments for subscriptions',
+            'Connected backend logic with Supabase',
+            'Improved onboarding flow and dashboard usability',
+          ],
+          stack:
+            'Next.js, TypeScript, Supabase, Tailwind CSS, Stripe, Vercel',
+          live: 'tortoise-decodifi.vercel.app',
+          liveUrl: 'https://tortoise-decodifi.vercel.app',
+        },
+        {
+          name: 'LifeDash',
+          role: 'Health SaaS Application',
+          description:
+            'Health-focused SaaS application with dashboards, subscription flows, and backend features.',
+          result:
+            'Improved user engagement through intuitive dashboards and a smoother subscription experience.',
+          bullets: [
+            'Developed dashboard components and subscription-related flows',
+            'Contributed to backend integration using Supabase',
+            'Worked on Stripe payment/subscription functionality as part of a team',
+            'Built responsive UI components with Next.js and Tailwind CSS',
+            'Supported debugging, testing, and deployment improvements',
+          ],
+          stack:
+            'Next.js, TypeScript, Supabase, Stripe, Tailwind CSS, Vercel',
+          live: 'life-dash-lilac.vercel.app',
+          liveUrl: 'https://life-dash-lilac.vercel.app',
+        },
+        {
+          name: 'DS5 Construction',
+          role: 'Business Website with API Integrations',
+          description:
+            'High-converting landing page for a construction company, developed from layout to deployment.',
+          result:
+            'Improved online presence and increased potential client inquiries.',
+          bullets: [
+            'Designed clean and professional UI',
+            'Structured content to highlight services and trust',
+            'Optimized for performance and fast loading',
+            'Implemented responsive design',
+            'Integrated Google Maps, Google Places, and Resend email service',
+            'Deployed the landing page on Vercel',
+          ],
+          stack:
+            'Next.js, TypeScript, Tailwind CSS, Google Maps API, Google Places API, Resend, Vercel',
+          live: 'ds5construction.co.uk',
+          liveUrl: 'https://ds5construction.co.uk',
+        },
       ],
-      stack:
-        'Next.js, TypeScript, Tailwind, Supabase, Stripe, Vercel',
-      live: 'ukrainian-school-leeds.vercel.app',
-      liveUrl: 'https://ukrainianschoolleeds.vercel.app',
-      code: 'Private repository (available on request)',
     },
     {
-      name: 'DS5 Construction',
-      role: 'Full-cycle development (from layout to deployment)',
-      description:
-        'Developed a high-converting landing page for a construction company.',
-      result:
-        'Improved online presence and increased potential client inquiries.',
-      bullets: [
-        'Designed clean and professional UI',
-        'Structured content to highlight services and trust',
-        'Optimized for performance and fast loading',
-        'Implemented responsive design',
-        'API integration with Google Maps, Google Places and Resend email service',
-        'Deployed the landing page on Vercel',
+      title: 'Commercial Web / CMS Projects',
+      projects: [
+        {
+          name: 'GO Network',
+          role: 'Webflow CMS Website',
+          description:
+            'Developed a platform-style website for a marketing network connecting brands with agencies.',
+          result:
+            'Improved content management and maintained consistent branding.',
+          bullets: [
+            'Built structured and scalable Webflow pages',
+            'Designed content-heavy layouts for clarity',
+            'Optimized user flows for different audiences: brands and agencies',
+            'Implemented responsive and modern UI',
+            'Enabled easy content updates through a CMS-driven structure',
+          ],
+          stack: 'Webflow, JavaScript, HTML, CSS',
+          live: 'thegonetwork.com',
+          liveUrl: 'https://thegonetwork.com',
+        },
+        {
+          name: 'TFS Express Logistics',
+          role: 'Webflow Business Website',
+          description:
+            'Modern logistics website focused on service presentation and lead generation.',
+          result:
+            'Improved service visibility and user engagement.',
+          bullets: [
+            'Structured content for clarity and user flow',
+            'Highlighted key services and delivery capabilities',
+            'Implemented responsive design',
+            'Optimized UI for better user experience',
+          ],
+          stack: 'Webflow, JavaScript, HTML, CSS',
+          live: 'tfslogistics.com',
+          liveUrl: 'https://tfslogistics.com',
+        },
       ],
-      stack: 'Next.js, Tailwind CSS, TypeScript, Vercel',
-      live: 'ds5construction.co.uk',
-      liveUrl: 'https://ds5construction.co.uk',
-    },
-    {
-      name: 'GO Network',
-      role: 'Full website development in Webflow',
-      description:
-        'Developed a platform-style website for a marketing network connecting brands with agencies.',
-      result:
-        'Enabled easy content updates through a CMS-driven structure while maintaining consistent branding.',
-      bullets: [
-        'Built structured and scalable frontend',
-        'Designed content-heavy layout for clarity',
-        'Optimized user flows for different audiences (brands & agencies)',
-        'Implemented responsive and modern UI',
-      ],
-      stack: 'Webflow, JavaScript, HTML, CSS',
-      live: 'thegonetwork.com',
-      liveUrl: 'https://thegonetwork.com',
-    },
-    {
-      name: 'TFS Express Logistics',
-      role: 'Full website development in Webflow',
-      description:
-        'Built a modern logistics website focused on service presentation and lead generation.',
-      result:
-        'Improved service visibility and user engagement.',
-      bullets: [
-        'Structured content for clarity and user flow',
-        'Highlighted key services and delivery capabilities',
-        'Implemented responsive design',
-        'Optimized UI for better user experience',
-      ],
-      stack: 'Webflow, JavaScript, HTML, CSS',
-      live: 'tfslogistics.com',
-      liveUrl: 'https://tfslogistics.com',
-    },
-    {
-      name: 'LifeDash',
-      role: 'SaaS Application',
-      description: 'Health-focused SaaS',
-      result:
-        'Increased user engagement through intuitive dashboards and smooth subscription experience.',
-      bullets: [
-        'Developed dashboards, subscription flows, and backend as part of a team',
-      ],
-      stack: 'Next.js, Supabase, Stripe, Tailwind',
-      live: 'life-dash-lilac.vercel.app',
-      liveUrl: 'https://life-dash-lilac.vercel.app',
-      code: 'Private repository (available on request)',
-    },
-    {
-      name: 'Tortoise',
-      role: 'SaaS Platform',
-      description: 'Next.js SaaS Project',
-      result:
-        'Delivered a secure and scalable dashboard experience with improved onboarding flow.',
-      bullets: [
-        'Built dynamic pages and secure authentication system',
-        'Developed responsive admin dashboard',
-        'Integrated Stripe payments for subscriptions',
-        'Integrated backend logic with Supabase',
-      ],
-      stack: 'Next.js, TypeScript, Supabase, Tailwind CSS',
-      live: 'tortoise-decodifi.vercel.app',
-      liveUrl: 'https://tortoise-decodifi.vercel.app',
-      code: 'Private repository (available on request)',
     },
   ],
 
   education: [
     {
       name: 'GoIT',
-      program: 'Web Development Program',
+      program: 'Full-Stack Web Development Program',
       period: '2019 – 2021',
       description:
-        'Intensive training in HTML, CSS, JavaScript, React, Node.js, databases, and modern web tools.',
+        'Completed an intensive full-stack web development program covering JavaScript, React, Node.js, databases, REST APIs, Git, and modern frontend development practices.',
     },
   ],
 
   keyStrengths: [
-    'Hands-on experience building production web applications and SaaS',
-    'Full-stack development skills (frontend + backend + integrations)',
-    'Familiar with no-code and AI-assisted development',
-    'Strong problem-solving, debugging, and deployment abilities',
+    'Production web applications, SaaS tools, dashboards, and business websites',
+    'Full-stack development: frontend, backend integrations, authentication, databases, and APIs',
+    'Stripe, Supabase, PostgreSQL, protected routes, and Vercel deployment',
+    'Product-minded approach with rapid prototyping and AI-assisted workflows',
+    'Strong debugging, performance optimization, and deployment skills',
   ],
 } as const;
 

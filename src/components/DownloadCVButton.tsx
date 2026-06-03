@@ -18,7 +18,7 @@ const NAME_BOTTOM_GAP = 5;
 const PHOTO_SIZE = 38;
 const PHOTO_X = MARGIN_X;
 const PHOTO_Y = MARGIN_Y;
-const HEADER_TEXT_X = MARGIN_X + PHOTO_SIZE + 10;
+const HEADER_TEXT_X = MARGIN_X + PHOTO_SIZE;
 
 function wrapText(doc: jsPDF, text: string, x: number, y: number): number {
   const lines = doc.splitTextToSize(text, MAX_W);
@@ -32,6 +32,43 @@ function checkPageBreak(doc: jsPDF, y: number, spaceNeeded: number): number {
     return MARGIN_Y;
   }
   return y;
+}
+
+function printBoldLabelText(
+  doc: jsPDF,
+  label: string,
+  text: string,
+  x: number,
+  y: number
+): number {
+  doc.setFont("helvetica", "bold");
+  doc.text(label, x, y);
+  const labelWidth = doc.getTextWidth(label);
+  doc.setFont("helvetica", "normal");
+  const firstLines = doc.splitTextToSize(text, MAX_W - labelWidth);
+  doc.text(firstLines[0], x + labelWidth, y);
+  y += LINE_HEIGHT;
+  const remainder = text.slice(firstLines[0].length).trimStart();
+  if (remainder) {
+    return wrapText(doc, remainder, x, y) + 1;
+  }
+  return y + 1;
+}
+
+function printBoldLabelLink(
+  doc: jsPDF,
+  label: string,
+  text: string,
+  url: string,
+  x: number,
+  y: number
+): number {
+  doc.setFont("helvetica", "bold");
+  doc.text(label, x, y);
+  const labelWidth = doc.getTextWidth(label);
+  doc.setFont("helvetica", "normal");
+  doc.textWithLink(text, x + labelWidth, y, { url });
+  return y + LINE_HEIGHT;
 }
 
 export function DownloadCVButton() {
@@ -190,46 +227,57 @@ export function DownloadCVButton() {
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
-    for (const proj of cvData.projects) {
-      const name = (proj as { name: string }).name;
-      const role = (proj as { role?: string }).role;
-      const title = role ? `${name} - ${role}` : name;
-      y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
+    for (const section of cvData.projects) {
+      y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
       doc.setFont("helvetica", "bold");
-      doc.text(title, MARGIN_X, y);
-      y += LINE_HEIGHT;
+      doc.text(section.title, MARGIN_X, y);
+      y += LINE_HEIGHT + 2;
       doc.setFont("helvetica", "normal");
-      y = wrapText(doc, proj.description, MARGIN_X, y) + 1;
-      if ("bullets" in proj && proj.bullets) {
-        for (const b of proj.bullets) {
-          y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-          y = wrapText(doc, `• ${b}`, MARGIN_X + 2, y) + 1;
-        }
-      }
-      if ("result" in proj && proj.result) {
+      for (const proj of section.projects) {
+        const role = "role" in proj ? proj.role : undefined;
+        const title = role ? `${proj.name} - ${role}` : proj.name;
         y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
-        y = wrapText(doc, `Result: ${proj.result}`, MARGIN_X, y) + 1;
-      }
-      doc.text(`Stack: ${proj.stack}`, MARGIN_X, y);
-      y += LINE_HEIGHT;
-      const p = proj as { live?: string; liveUrl?: string; code?: string; codeUrl?: string };
-      if (p.live) {
-        if (p.liveUrl) {
-          doc.textWithLink(`Live: ${p.live}`, MARGIN_X, y, { url: p.liveUrl });
-        } else {
-          doc.text(`Live: ${p.live}`, MARGIN_X, y);
-        }
+        doc.setFont("helvetica", "bold");
+        doc.text(title, MARGIN_X, y);
         y += LINE_HEIGHT;
-      }
-      if (p.code) {
-        if (p.codeUrl) {
-          doc.textWithLink(`Code: ${p.code}`, MARGIN_X, y, { url: p.codeUrl });
-        } else {
-          doc.text(`Code: ${p.code}`, MARGIN_X, y);
+        doc.setFont("helvetica", "normal");
+        y = wrapText(doc, proj.description, MARGIN_X, y) + 1;
+        if ("bullets" in proj && proj.bullets) {
+          for (const b of proj.bullets) {
+            y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
+            y = wrapText(doc, `• ${b}`, MARGIN_X + 2, y) + 1;
+          }
         }
-        y += LINE_HEIGHT;
+        if ("result" in proj && proj.result) {
+          y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
+          y = printBoldLabelText(doc, "Result: ", proj.result, MARGIN_X, y);
+        }
+        y = checkPageBreak(doc, y, LINE_HEIGHT);
+        y = printBoldLabelText(doc, "Stack: ", proj.stack, MARGIN_X, y);
+        const p = proj as {
+          live?: string;
+          liveUrl?: string;
+          code?: string;
+          codeUrl?: string;
+        };
+        if (p.live) {
+          y = checkPageBreak(doc, y, LINE_HEIGHT);
+          if (p.liveUrl) {
+            y = printBoldLabelLink(doc, "Live: ", p.live, p.liveUrl, MARGIN_X, y);
+          } else {
+            y = printBoldLabelText(doc, "Live: ", p.live, MARGIN_X, y);
+          }
+        }
+        if (p.code) {
+          y = checkPageBreak(doc, y, LINE_HEIGHT);
+          if (p.codeUrl) {
+            y = printBoldLabelLink(doc, "Code: ", p.code, p.codeUrl, MARGIN_X, y);
+          } else {
+            y = printBoldLabelText(doc, "Code: ", p.code, MARGIN_X, y);
+          }
+        }
+        y += 4;
       }
-      y += 4;
     }
     y += SECTION_GAP;
 

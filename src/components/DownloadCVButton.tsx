@@ -10,7 +10,7 @@ const PAGE_W = 210;
 const PAGE_H = 297;
 const MAX_W = PAGE_W - MARGIN_X * 2;
 const LINE_HEIGHT = 5.5;
-const SECTION_GAP = 6;
+const SECTION_GAP = 5;
 const NAME_SIZE = 20;
 const HEADING_SIZE = 11;
 const BODY_SIZE = 9;
@@ -123,8 +123,8 @@ export function DownloadCVButton() {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
     for (const p of cvData.aboutParagraphs) {
-      y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
-      y = wrapText(doc, p, MARGIN_X, y) + 2;
+      y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
+      y = wrapText(doc, p, MARGIN_X, y) - 1;
     }
     y += SECTION_GAP;
 
@@ -138,7 +138,7 @@ export function DownloadCVButton() {
     doc.setFontSize(BODY_SIZE);
     for (const item of cvData.whatIDo) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-      y = wrapText(doc, `• ${item}`, MARGIN_X, y) + 1;
+      y = wrapText(doc, `${item.replace(/ <br\s*\/?>/g, ':')}`, MARGIN_X, y);
     }
     y += SECTION_GAP;
 
@@ -176,7 +176,7 @@ export function DownloadCVButton() {
       doc.setFont("helvetica", "normal");
       for (const b of exp.bullets) {
         y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-        y = wrapText(doc, `• ${b}`, MARGIN_X + 2, y) + 1;
+        y = wrapText(doc, `• ${b}`, MARGIN_X + 2, y);
       }
       y += 4;
     }

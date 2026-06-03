@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-(--page-bg) font-sans">
       <header className="sticky top-0 z-10 border-b border-(--header-border) bg-(--header-bg) backdrop-blur">
-        <nav className="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+        <nav className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-4 px-6 py-4">
           <span className="text-lg font-semibold text-(--text-primary)">
             Portfolio
           </span>
@@ -52,7 +52,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <main className="mx-auto max-w-2xl px-6 pb-24 pt-12">
+      <main className="mx-auto max-w-4xl px-6 pb-24 pt-12">
         {/* Hero */}
         <section className="mb-20 text-center">
           <div className="mb-6 flex justify-center">
@@ -121,11 +121,11 @@ export default function Home() {
           <h2 className="mb-4 text-xl font-semibold text-(--text-primary)">
             What I do
           </h2>
-          <ul className="list-inside list-disc space-y-1 text-(--text-secondary)">
+          <div className="space-y-3 leading-relaxed text-(--text-secondary)">
             {cvData.whatIDo.map((item) => (
-              <li key={item}>{item}</li>
+              <p key={item} dangerouslySetInnerHTML={{ __html: item }} />
             ))}
-          </ul>
+          </div>
         </section>
 
         {/* Tech Stack */}
@@ -304,13 +304,12 @@ export default function Home() {
             Availability
           </h2>
           <p className="mb-6 text-(--text-secondary)">
-            Open to Junior Web Developer roles in the UK or Remote. Reach out
-            via email or LinkedIn.
+            Open to Full-Stack / Frontend Developer roles focused on React, Next.js, TypeScript, Supabase, and SaaS products.
           </p>
           <div className="flex flex-wrap gap-4">
             <a
               href={`mailto:${cvData.email}`}
-                className="text-(--text-primary) underline underline-offset-4 hover:text-(--text-secondary)"
+              className="text-(--text-primary) underline underline-offset-4 hover:text-(--text-secondary)"
             >
               {cvData.email}
             </a>
@@ -318,7 +317,7 @@ export default function Home() {
               href={cvData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-                className="text-(--text-primary) underline underline-offset-4 hover:text-(--text-secondary)"
+              className="text-(--text-primary) underline underline-offset-4 hover:text-(--text-secondary)"
             >
               LinkedIn
             </a>
@@ -326,7 +325,7 @@ export default function Home() {
               href={cvData.github}
               target="_blank"
               rel="noopener noreferrer"
-                className="text-(--text-primary) underline underline-offset-4 hover:text-(--text-secondary)"
+              className="text-(--text-primary) underline underline-offset-4 hover:text-(--text-secondary)"
             >
               GitHub
             </a>

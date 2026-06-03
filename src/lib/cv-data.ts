@@ -12,19 +12,19 @@ export const cvData = {
   githubDisplay: 'github.com/VladKyriienko',
 
   aboutParagraphs: [
-    'Full-Stack Developer focused on building web applications with Next.js, Supabase, Tailwind CSS, and Stripe.',
-    'I’ve developed logistics platforms, construction websites, school systems, and dashboard-based applications. My work covers frontend development, backend integrations, authentication, payments, and admin systems.',
-    'Previously, I built and delivered products using no-code tools such as Bubble and Webflow, which gave me strong product thinking and rapid prototyping experience. Today, I combine that background with AI-assisted development workflows to speed up delivery and improve development efficiency.',
-    'I enjoy building practical, user-focused products and collaborating on fast-moving teams. Open to full-stack or frontend opportunities in the UK and remote.',
+    'Full-Stack Developer focused on building practical, production-ready web applications with Next.js, React, Supabase, Tailwind CSS, and Stripe.',
+    'I have developed logistics platforms, construction websites, school systems, SaaS tools, and dashboard-based applications. My work covers frontend development, backend integrations, authentication, payments, admin systems, and deployment.',
+    'Earlier experience with Bubble and Webflow helped me develop strong product thinking, rapid prototyping skills, and a client-focused approach to delivery. Today, I combine that background with modern full-stack development practices and AI-assisted workflows to improve productivity while maintaining clean, maintainable code.',
+    'I enjoy building user-focused products, solving practical business problems, and collaborating with fast-moving teams. I am open to full-stack and frontend opportunities in the UK or remote.',
   ],
 
   whatIDo: [
-    'Web Applications (Next.js / React / JavaScript / TypeScript)',
-    'Admin Dashboards',
-    'Payment Integration (Stripe)',
-    'API Integration',
-    'Responsive UI/UX',
-    'Performance Optimization',
+    'Full-Stack Web Applications <br /> Next.js, React, TypeScript, Supabase, PostgreSQL',
+    'Admin Dashboards <br /> Role-based access, user management, protected routes',
+    'Authentication & Backend Integrations <br /> Supabase Auth, API integrations, database-backed features',
+    'Payment Integration <br /> Stripe Checkout, subscriptions, webhooks',
+    'Responsive UI Development <br /> Tailwind CSS, mobile-first layouts, clean user interfaces',
+    'Performance & Deployment <br /> Next.js optimization, Vercel deployment, production support',
   ],
 
   techStack: [
@@ -52,20 +52,28 @@ export const cvData = {
     {
       label: 'Frontend:',
       value:
-        'HTML, CSS, JavaScript ,React, Next.js, TypeScript, Tailwind CSS',
+        'React, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML5, CSS3',
     },
     {
       label: 'Backend:',
       value: 'Node.js, Supabase, PostgreSQL, REST APIs',
     },
     {
-      label: 'Payments:',
-      value: 'Stripe (Subscriptions, Checkout, Webhooks)',
+      label: 'Auth & Database:',
+      value:
+        'Supabase Auth, Row Level Security, PostgreSQL',
     },
-    { label: 'No-code / CMS:', value: 'Bubble, Webflow' },
     {
-      label: 'Tools:',
-      value: 'Git, GitHub, Vercel, Figma',
+      label: 'Payments:',
+      value: 'Stripe Checkout, Subscriptions, Webhooks',
+    },
+    {
+      label: 'Deployment & Tools:',
+      value: 'Vercel, Git, GitHub, Figma',
+    },
+    {
+      label: 'Prototyping & CMS:',
+      value: 'Bubble, Webflow',
     },
   ],
 
@@ -75,12 +83,11 @@ export const cvData = {
       company: 'Decodifi LTD',
       period: '2022 – 2026',
       bullets: [
-        'Developed and maintained full-stack web applications using Next.js and Supabase',
-        'Built admin dashboards, authentication systems, and payment integrations (Stripe)',
-        'Improved performance and scalability of production applications',
-        'Deployed and maintained production applications on Vercel',
-        'Collaborated on SaaS products and internal tools',
-        'Previously leveraged no-code platforms to prototype and deliver projects',
+        'Developed and maintained production-ready full-stack web applications using Next.js, React, TypeScript, Supabase, PostgreSQL, Tailwind CSS, and Vercel',
+        'Built role-based admin dashboards, Supabase authentication flows, protected routes, and database-backed user management features',
+        'Integrated Stripe Checkout and webhook-based payment/subscription flows for SaaS and client-facing platforms',
+        'Improved frontend performance by optimizing Next.js rendering, reducing unnecessary client-side logic, and improving deployment workflows on Vercel',
+        'Contributed across the full product lifecycle, including UI development, backend logic, database design, API integrations, debugging, testing, and deployment',
       ],
     },
   ],

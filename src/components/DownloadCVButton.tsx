@@ -1,7 +1,8 @@
 "use client";
 
 import { jsPDF } from "jspdf";
-import { cvData } from "@/lib/cv-data";
+import { contentData } from "@/lib/content-data";
+import { projectSections } from "@/app/projects";
 import { withBasePath } from "@/lib/base-path";
 
 const MARGIN_X = 20;
@@ -116,36 +117,36 @@ export function DownloadCVButton() {
     let headerY = MARGIN_Y;
     doc.setFontSize(NAME_SIZE);
     doc.setFont("helvetica", "bold");
-    doc.text(cvData.name, HEADER_TEXT_X, headerY + 5);
+    doc.text(contentData.name, HEADER_TEXT_X, headerY + 5);
     headerY += LINE_HEIGHT + NAME_BOTTOM_GAP;
 
     doc.setFontSize(BODY_SIZE);
     doc.setFont("helvetica", "normal");
-    doc.text(cvData.title, HEADER_TEXT_X, headerY);
+    doc.text(contentData.title, HEADER_TEXT_X, headerY);
     headerY += LINE_HEIGHT;
-    doc.text(`${cvData.location} | ${cvData.availability}`, HEADER_TEXT_X, headerY);
+    doc.text(contentData.location, HEADER_TEXT_X, headerY);
     headerY += LINE_HEIGHT + 2;
 
     doc.setFontSize(BODY_SIZE);
     doc.textWithLink(
-      `Email: ${cvData.email}`,
+      `Email: ${contentData.email}`,
       HEADER_TEXT_X,
       headerY,
-      { url: `mailto:${cvData.email}` }
+      { url: `mailto:${contentData.email}` }
     );
     headerY += LINE_HEIGHT;
     doc.textWithLink(
-      `LinkedIn: ${cvData.linkedinDisplay}`,
+      `LinkedIn: ${contentData.linkedinDisplay}`,
       HEADER_TEXT_X,
       headerY,
-      { url: cvData.linkedin }
+      { url: contentData.linkedin }
     );
     headerY += LINE_HEIGHT;
     doc.textWithLink(
-      `GitHub: ${cvData.githubDisplay}`,
+      `GitHub: ${contentData.githubDisplay}`,
       HEADER_TEXT_X,
       headerY,
-      { url: cvData.github }
+      { url: contentData.github }
     );
     headerY += LINE_HEIGHT + 4;
 
@@ -159,7 +160,7 @@ export function DownloadCVButton() {
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
-    for (const p of cvData.aboutParagraphs) {
+    for (const p of contentData.about.split(/\n\n+/)) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
       y = wrapText(doc, p, MARGIN_X, y) - 1;
     }
@@ -173,9 +174,9 @@ export function DownloadCVButton() {
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
-    for (const item of cvData.whatIDo) {
+    for (const item of contentData.whatIDo.split(/\n+/)) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-      y = wrapText(doc, `${item.replace(/ <br\s*\/?>/g, ':')}`, MARGIN_X, y);
+      y = wrapText(doc, item, MARGIN_X, y);
     }
     y += SECTION_GAP;
 
@@ -187,10 +188,9 @@ export function DownloadCVButton() {
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
-    for (const g of cvData.techStackGroups) {
+    for (const line of contentData.techStack.split(/\n+/)) {
       y = checkPageBreak(doc, y, LINE_HEIGHT);
-      doc.text(`${g.label} ${g.value}`, MARGIN_X, y);
-      y += LINE_HEIGHT;
+      y = wrapText(doc, line, MARGIN_X, y);
     }
     y += SECTION_GAP;
 
@@ -202,7 +202,7 @@ export function DownloadCVButton() {
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
-    for (const exp of cvData.experience) {
+    for (const exp of contentData.experience) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 4);
       doc.setFont("helvetica", "bold");
       doc.text(`${exp.company} - ${exp.role}`, MARGIN_X, y);
@@ -211,9 +211,9 @@ export function DownloadCVButton() {
       doc.text(exp.period, MARGIN_X, y);
       y += LINE_HEIGHT;
       doc.setFont("helvetica", "normal");
-      for (const b of exp.bullets) {
+      for (const b of exp.bullets.split(/\n+/)) {
         y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-        y = wrapText(doc, `• ${b}`, MARGIN_X + 2, y);
+        y = wrapText(doc, b, MARGIN_X + 2, y);
       }
       y += 4;
     }
@@ -227,55 +227,40 @@ export function DownloadCVButton() {
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
-    for (const section of cvData.projects) {
+    for (const section of projectSections) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
       doc.setFont("helvetica", "bold");
       doc.text(section.title, MARGIN_X, y);
       y += LINE_HEIGHT + 2;
       doc.setFont("helvetica", "normal");
       for (const proj of section.projects) {
-        const role = "role" in proj ? proj.role : undefined;
-        const title = role ? `${proj.name} - ${role}` : proj.name;
         y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
         doc.setFont("helvetica", "bold");
-        doc.text(title, MARGIN_X, y);
+        doc.text(`${proj.name} - ${proj.role}`, MARGIN_X, y);
         y += LINE_HEIGHT;
         doc.setFont("helvetica", "normal");
         y = wrapText(doc, proj.description, MARGIN_X, y) + 1;
-        if ("bullets" in proj && proj.bullets) {
-          for (const b of proj.bullets) {
-            y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-            y = wrapText(doc, `• ${b}`, MARGIN_X + 2, y) + 1;
-          }
+        for (const line of proj.built.split(/\n+/)) {
+          y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
+          y = wrapText(doc, line, MARGIN_X + 2, y) + 1;
         }
-        if ("result" in proj && proj.result) {
-          y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
-          y = printBoldLabelText(doc, "Result: ", proj.result, MARGIN_X, y);
-        }
+        y = checkPageBreak(doc, y, LINE_HEIGHT * 3);
+        y = printBoldLabelText(doc, "Result: ", proj.result, MARGIN_X, y);
         y = checkPageBreak(doc, y, LINE_HEIGHT);
         y = printBoldLabelText(doc, "Stack: ", proj.stack, MARGIN_X, y);
-        const p = proj as {
-          live?: string;
-          liveUrl?: string;
-          code?: string;
-          codeUrl?: string;
-        };
-        if (p.live) {
+        if (proj.github) {
           y = checkPageBreak(doc, y, LINE_HEIGHT);
-          if (p.liveUrl) {
-            y = printBoldLabelLink(doc, "Live: ", p.live, p.liveUrl, MARGIN_X, y);
-          } else {
-            y = printBoldLabelText(doc, "Live: ", p.live, MARGIN_X, y);
-          }
+          y = printBoldLabelLink(doc, "GitHub: ", proj.github, proj.github, MARGIN_X, y);
         }
-        if (p.code) {
-          y = checkPageBreak(doc, y, LINE_HEIGHT);
-          if (p.codeUrl) {
-            y = printBoldLabelLink(doc, "Code: ", p.code, p.codeUrl, MARGIN_X, y);
-          } else {
-            y = printBoldLabelText(doc, "Code: ", p.code, MARGIN_X, y);
-          }
-        }
+        y = checkPageBreak(doc, y, LINE_HEIGHT);
+        y = printBoldLabelLink(
+          doc,
+          "Live: ",
+          new URL(proj.liveUrl).hostname,
+          proj.liveUrl,
+          MARGIN_X,
+          y
+        );
         y += 4;
       }
     }
@@ -289,7 +274,7 @@ export function DownloadCVButton() {
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
-    for (const ed of cvData.education) {
+    for (const ed of contentData.education) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 5);
       doc.setFont("helvetica", "bold");
       doc.text(`${ed.name} - ${ed.program}`, MARGIN_X, y);
@@ -309,15 +294,15 @@ export function DownloadCVButton() {
     y += SECTION_GAP;
     doc.setFont("helvetica", "normal");
     doc.setFontSize(BODY_SIZE);
-    for (const s of cvData.keyStrengths) {
+    for (const s of contentData.keyStrengths.split(/\n+/)) {
       y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
-      y = wrapText(doc, `• ${s}`, MARGIN_X, y) + 1;
+      y = wrapText(doc, s, MARGIN_X, y) + 1;
     }
     y += SECTION_GAP;
 
     y = checkPageBreak(doc, y, LINE_HEIGHT * 2);
     doc.text(
-      `Availability: ${cvData.availability}. Reach out via email or LinkedIn.`,
+      `Availability: ${contentData.location}. Reach out via email or LinkedIn.`,
       MARGIN_X,
       y
     );
